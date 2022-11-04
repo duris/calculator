@@ -3,6 +3,8 @@ import { useState } from "react"
 const Home = () => {
 
   const [calcNums, setCalcNums] = useState([0,1,2,3,4,5,6,7,8,9,'+','-','*','/','=','c','(',')'])
+  const [calcStr, setCalcStr] = useState('')
+  const [entryCount, setEntryCount] = useState(0)
 
   const [head, setHead] = useState(0)
   
@@ -13,13 +15,31 @@ const Home = () => {
     setHead(head-10)
   }
 
-  const setCalc = (num) => {         
-    if(head=='0'){
+  let arr = []
+
+  const setCalc = (num) => {   
+    
+    setCalcStr(calcStr + num)
+
+    if(num=='*'||num=='/'||num=='+'||num=='-'){
+      // setCalcArr(calcArr + head)
+            
       setHead('')
+      // console.log(calcArr)
+    }else {
+      setHead(`${head}`+`${num}`)   
+      setEntryCount(entryCount+1)
     }
-    setHead(`${head}`+`${num}`)                
-    if(num == '='){alert('Equals:')}
-    if(num == 'c'){setHead('')}
+    console.log(calcStr)
+
+    if(num == '='){
+      let st = calcStr.split('+')
+      let val = Number(st[0]) + Number(st[1])
+      setHead(val)
+      setEntryCount(0)
+      
+    }
+    if(num == 'c'){setHead(''), setCalcStr('')}
   }
   return(
     <div className=" bg-slate-900 h-screen">
