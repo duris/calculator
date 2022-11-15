@@ -42,7 +42,7 @@ const Home = () => {
     if(num == 'c'){setHead(''), setCalcStr('')}
   }
   return(
-    <div className=" bg-slate-900 h-screen">
+    <div className=" bg-slate-700 h-screen">
       <div>
         
       <div className=" text-5xl w-full inline-block text-center p-2 h-20">{head}</div>
