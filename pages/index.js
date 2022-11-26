@@ -23,6 +23,7 @@ const Home = () => {
   const [secondVal, setSecondVal] = useState(null)
 
 
+
   const setCalc = (num) => {   
     
     if(typeof(num) == 'number'){
@@ -70,7 +71,7 @@ const Home = () => {
         console.log('Equals')
         break;
       case 'c':
-        console.log('Clears')
+        // console.log('Clears')
         setCalculation(0)
         break;
       case '.':
